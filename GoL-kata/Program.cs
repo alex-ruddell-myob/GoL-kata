@@ -6,12 +6,16 @@ namespace GoL_kata
     {
         static void Main(string[] args)
         {
-            ConsoleIO.ReadUserInput();
+            Initialise();
+            InputData input = ConsoleIO.ReadUserInput();
+            
+            // board = Adapter(data), or something similar
+            
         }
 
         static void Initialise()
         {
-            Console.WriteLine("Welcome to Conway's Game of Life!");
+            Console.WriteLine("Welcome to Conway's Game of Life!\n");
         }
     }
 }
