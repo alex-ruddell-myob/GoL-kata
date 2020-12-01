@@ -10,7 +10,7 @@ namespace GoL_kata
         
         public static InputData ReadUserInput()
         {
-            Console.Write("\nPlease enter an integer board height (# cells):  ");
+            Console.Write("Please enter an integer board height (# cells):  ");
             _input.boardHeight = Int32.Parse(Console.ReadLine());
             Console.Write("Please enter an integer board width  (# cells):  ");
             _input.boardWidth = Int32.Parse(Console.ReadLine());
@@ -35,7 +35,7 @@ namespace GoL_kata
             }
             Console.Write("\n");
 
-            _input.seedArray = new string[_input.seedHeight];
+            _input.seedString = new string[_input.seedHeight];
             var regex = new Regex(@"[-X]");
 
             for (var row = 1; row <= _input.seedHeight; row++)
@@ -44,20 +44,20 @@ namespace GoL_kata
                 var inputLine = Console.ReadLine();
                 MatchCollection matches = regex.Matches(inputLine);
 
-                if (matches.Count != 3)
+                if (matches.Count != inputLine.Length)
                 {
                     Console.WriteLine("Please only enter '-' or 'X' characters.");
                     row--;
                 }
                 else
                 {
-                    _input.seedArray[row - 1] = inputLine;
+                    _input.seedString[row - 1] = inputLine;
                 }
             }
 
             Console.WriteLine("\nYour seed is...\n");
             
-            foreach (string line in _input.seedArray)
+            foreach (string line in _input.seedString)
             {
                 Console.WriteLine("\t\t" + line);
             }
@@ -65,9 +65,25 @@ namespace GoL_kata
             return _input;
         }
 
-        public static void PrintGameBoard()
+        public static void PrintGameBoard(Board board, int iteration)
         {
-            
+            Console.WriteLine("Game Tick: " + iteration + "\n");
+            for (int i = 0; i < board.BoardHeight; i++)
+            {
+                for (int j = 0; j < board.BoardWidth; j++)
+                {
+                    if (board.CellArray[i, j].alive)
+                    {
+                        // TODO: make 'alive' character cooler
+                        Console.Write("■ ");
+                    }
+                    else
+                    {
+                        Console.Write("□ ");
+                    }
+                }
+                Console.Write("\n");
+            }
         }
     }
 }
