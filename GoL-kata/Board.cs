@@ -2,10 +2,10 @@ using System;
 
 namespace GoL_kata
 {
-    class Board
+    public class Board
     {
-        public readonly int BoardHeight;
-        public readonly int BoardWidth;
+        public int BoardHeight;
+        public int BoardWidth;
         private int _seedHeight;
         private int _seedWidth;
         private string[] _seedString;
@@ -46,6 +46,14 @@ namespace GoL_kata
                     }
                 }
             }
+        }
+
+        public Board(int width, int height)
+        {
+            BoardHeight = height;
+            BoardWidth = width;
+            InitialiseCellArray();
+
         }
         
         public Board(InputData input)

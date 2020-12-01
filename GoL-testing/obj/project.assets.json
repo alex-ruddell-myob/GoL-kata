@@ -1225,6 +1225,16 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XPath.XmlDocument.dll": {}
         }
+      },
+      "GoL-kata/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "compile": {
+          "bin/placeholder/GoL-kata.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/GoL-kata.dll": {}
+        }
       }
     }
   },
@@ -4613,10 +4623,16 @@
         "system.xml.xpath.xmldocument.4.3.0.nupkg.sha512",
         "system.xml.xpath.xmldocument.nuspec"
       ]
+    },
+    "GoL-kata/1.0.0": {
+      "type": "project",
+      "path": "../GoL-kata/GoL-kata.csproj",
+      "msbuildProject": "../GoL-kata/GoL-kata.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
+      "GoL-kata >= 1.0.0",
       "Microsoft.NET.Test.Sdk >= 16.5.0",
       "NUnit >= 3.12.0",
       "NUnit3TestAdapter >= 3.16.1"
@@ -4645,7 +4661,11 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
-          "projectReferences": {}
+          "projectReferences": {
+            "/Users/Alex.Ruddell/Documents/GoL-kata/GoL-kata/GoL-kata.csproj": {
+              "projectPath": "/Users/Alex.Ruddell/Documents/GoL-kata/GoL-kata/GoL-kata.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

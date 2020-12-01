@@ -7,7 +7,7 @@ namespace GoL_kata
     static class ConsoleIO
     {
         private static InputData _input = new InputData();
-        
+
         public static InputData ReadUserInput()
         {
             Console.Write("Please enter an integer board height (# cells):  ");
@@ -17,22 +17,23 @@ namespace GoL_kata
 
             Console.WriteLine("\nPlease set the initial state of the board. You may enter any shape you want!");
             Console.WriteLine("For example:\n\t\t----XXXX----\t  \t---XX--XX---\n\t\t--XXX-XXX---\tOR\tXX--------XX" +
-                                        "\n\t\t-X-XXXX-XX--\t  \t--XXXXXXXX--");
-            
+                              "\n\t\t-X-XXXX-XX--\t  \t--XXXXXXXX--");
+
             Console.WriteLine("\nWhere 'X' characters mark live cells, and '-' characters mark dead ones");
-            
+
             Console.Write("\nPlease enter a seed height:  ");
             _input.seedHeight = Int32.Parse(Console.ReadLine());
             Console.Write("Please enter a seed width :  ");
             _input.seedWidth = Int32.Parse(Console.ReadLine());
             // TODO: validate that these are less than the board sizes
-            
+
             Console.WriteLine("\nPlease enter your seed line by line...\n");
             Console.Write("Cols  | ");
             for (var col = 1; col <= _input.seedWidth; col++)
             {
                 Console.Write(col.ToString());
             }
+
             Console.Write("\n");
 
             _input.seedString = new string[_input.seedHeight];
@@ -56,7 +57,7 @@ namespace GoL_kata
             }
 
             Console.WriteLine("\nYour seed is...\n");
-            
+
             foreach (string line in _input.seedString)
             {
                 Console.WriteLine("\t\t" + line);
@@ -82,6 +83,7 @@ namespace GoL_kata
                         Console.Write("□  ");
                     }
                 }
+
                 Console.Write("\n");
             }
         }

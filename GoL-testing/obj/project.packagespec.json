@@ -14,7 +14,11 @@
     },
     "frameworks": {
       "netcoreapp3.1": {
-        "projectReferences": {}
+        "projectReferences": {
+          "/Users/Alex.Ruddell/Documents/GoL-kata/GoL-kata/GoL-kata.csproj": {
+            "projectPath": "/Users/Alex.Ruddell/Documents/GoL-kata/GoL-kata/GoL-kata.csproj"
+          }
+        }
       }
     },
     "warningProperties": {

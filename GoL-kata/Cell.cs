@@ -1,6 +1,6 @@
 namespace GoL_kata
 {
-    struct Cell
+    public struct Cell
     {
         public int row;
         public int column;

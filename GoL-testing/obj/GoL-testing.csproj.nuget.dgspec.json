@@ -4,6 +4,56 @@
     "/Users/Alex.Ruddell/Documents/GoL-kata/GoL-testing/GoL-testing.csproj": {}
   },
   "projects": {
+    "/Users/Alex.Ruddell/Documents/GoL-kata/GoL-kata/GoL-kata.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/Alex.Ruddell/Documents/GoL-kata/GoL-kata/GoL-kata.csproj",
+        "projectName": "GoL-kata",
+        "projectPath": "/Users/Alex.Ruddell/Documents/GoL-kata/GoL-kata/GoL-kata.csproj",
+        "packagesPath": "/Users/Alex.Ruddell/.nuget/packages/",
+        "outputPath": "/Users/Alex.Ruddell/Documents/GoL-kata/GoL-kata/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/Alex.Ruddell/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/Users/Alex.Ruddell/.dotnet/sdk/3.1.403/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
     "/Users/Alex.Ruddell/Documents/GoL-kata/GoL-testing/GoL-testing.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -24,7 +74,11 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
-            "projectReferences": {}
+            "projectReferences": {
+              "/Users/Alex.Ruddell/Documents/GoL-kata/GoL-kata/GoL-kata.csproj": {
+                "projectPath": "/Users/Alex.Ruddell/Documents/GoL-kata/GoL-kata/GoL-kata.csproj"
+              }
+            }
           }
         },
         "warningProperties": {

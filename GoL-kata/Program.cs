@@ -15,7 +15,7 @@ namespace GoL_kata
             var board = new Board(userInput);
             int iteration = 0;
             ConsoleIO.PrintGameBoard(board, iteration);
-
+            
             while (!Console.KeyAvailable)
             {
                 board = Game.Iterate(board);
@@ -31,6 +31,7 @@ namespace GoL_kata
             // BOARD is passed through GAME to alter state until the game finishes
             // BOARD is printed each time.
 
+            
 
         }
 
