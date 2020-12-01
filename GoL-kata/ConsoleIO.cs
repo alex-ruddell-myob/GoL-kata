@@ -75,11 +75,11 @@ namespace GoL_kata
                     if (board.CellArray[i, j].alive)
                     {
                         // TODO: make 'alive' character cooler
-                        Console.Write("■ ");
+                        Console.Write("■  ");
                     }
                     else
                     {
-                        Console.Write("□ ");
+                        Console.Write("□  ");
                     }
                 }
                 Console.Write("\n");

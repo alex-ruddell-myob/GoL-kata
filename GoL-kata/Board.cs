@@ -8,6 +8,7 @@ namespace GoL_kata
         public readonly int BoardWidth;
         private int _seedHeight;
         private int _seedWidth;
+        private string[] _seedString;
 
         public Cell[,] CellArray;
 
@@ -31,12 +32,20 @@ namespace GoL_kata
         {
             int midHeight = BoardHeight / 2;
             int midWidth = BoardWidth / 2;
-            int seedHeightHalf = _seedHeight / 2;
-            int seedWidthHalf = _seedWidth / 2;
-            
-            //int seedRowStart = midHeight - Int32.Parse(_seedHeight / 2);
 
+            int seedStartRow = midHeight - _seedHeight / 2;
+            int seedStartColumn = midWidth - _seedWidth / 2;
 
+            for (int i = 0; i < _seedHeight; i++)
+            {
+                for (int j = 0; j < _seedWidth; j++)
+                {
+                    if (_seedString[i][j] == 'X')
+                    {
+                        CellArray[seedStartRow + i, seedStartColumn + j].alive = true;
+                    }
+                }
+            }
         }
         
         public Board(InputData input)
@@ -45,6 +54,7 @@ namespace GoL_kata
             BoardWidth = input.boardWidth;
             _seedHeight = input.seedHeight;
             _seedWidth = input.seedWidth;
+            _seedString = input.seedString;
             
             InitialiseCellArray();
             PlantSeed();
