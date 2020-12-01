@@ -22,7 +22,7 @@ namespace GoL_kata
                 iteration++;
                 ConsoleIO.PrintGameBoard(board, iteration);
 
-                Console.Write("\nPress ENTER to end game...");
+                Console.Write("\nPress ANY KEY to end game...");
                 Thread.Sleep(2000);
             }
 
