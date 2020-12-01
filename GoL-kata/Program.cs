@@ -14,7 +14,7 @@ namespace GoL_kata
 
             var board = new Board(userInput);
             int iteration = 0;
-            bool run = true;
+            ConsoleIO.PrintGameBoard(board, iteration);
 
             while (!Console.KeyAvailable)
             {
