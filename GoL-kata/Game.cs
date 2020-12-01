@@ -15,39 +15,10 @@ namespace GoL_kata
                 for (int j = 0; j < board.BoardWidth; j++)
                 {
                     Cell cell = board.CellArray[i, j];
-                    
-                    Console.WriteLine("Checking cell [{0}, {1}]", i, j);
-                    if (cell.alive)
-                    {
-                        Console.WriteLine("\tThe cell is alive");
-                    }
-                    else
-                    {
-                        Console.WriteLine("\tThe cell is dead");
-                    }
 
                     int aliveNeighbours = CountLiveNeighbours(cell, board.CellArray, board.BoardHeight, board.BoardWidth);
-                    
-                    Console.WriteLine("\tNumber of alive neighbours: " + aliveNeighbours);
-                    
+
                     newBoard.CellArray[i, j] = UpdateCellStatus(board.CellArray[i, j], aliveNeighbours);
-
-                    if (newBoard.CellArray[i, j].alive)
-                    {
-                        Console.WriteLine("\tTherefore, cell is now alive.");
-                    }
-                    else
-                    {
-                        Console.WriteLine("\tTherefore, cell is now dead.");
-                    }
-
-                    if (board.CellArray[i, j].alive)
-                    {
-                        Console.WriteLine("\tAnd the old cell is alive.");
-                    }
-                    
-
-                    Console.WriteLine();
                 }
             }
             
@@ -66,24 +37,13 @@ namespace GoL_kata
                     var indices = ValidateCellRange(i, j, boardHeight, boardWidth);
                     int row = indices[0];
                     int col = indices[1];
-                    
-                    Console.Write("\t\tTesting neighbour [{0}, {1}]...", row, col);
-                    
+
                     if (!(Equals(cell, cellArray[row, col])))
                     {
                         if (cellArray[row, col].alive)
                         {
                             aliveCount++;
-                            Console.Write(" ALIVE!\n");
                         }
-                        else
-                        {
-                            Console.Write(" DEAD!\n");
-                        }
-                    }
-                    else
-                    {
-                        Console.Write(" CURRENT, NOT TESTED \n");
                     }
                 }
             }
