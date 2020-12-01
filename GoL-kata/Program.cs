@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 
 namespace GoL_kata
 {
@@ -15,18 +16,14 @@ namespace GoL_kata
             int iteration = 0;
             bool run = true;
 
-            while (run)
+            while (!Console.KeyAvailable)
             {
                 board = Game.Iterate(board);
                 iteration++;
                 ConsoleIO.PrintGameBoard(board, iteration);
 
-                Console.Write("\nPress ENTER to end game");
-
-                while (Console.ReadKey().Key != ConsoleKey.Enter)
-                {
-                    
-                }
+                Console.Write("\nPress ENTER to end game...");
+                Thread.Sleep(2000);
             }
 
             // USER INPUT creates BOARD object DONE!!

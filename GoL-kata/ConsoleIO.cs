@@ -67,7 +67,7 @@ namespace GoL_kata
 
         public static void PrintGameBoard(Board board, int iteration)
         {
-            Console.WriteLine("Game Tick: " + iteration + "\n");
+            Console.WriteLine("\nGame Tick: " + iteration + "\n");
             for (int i = 0; i < board.BoardHeight; i++)
             {
                 for (int j = 0; j < board.BoardWidth; j++)
