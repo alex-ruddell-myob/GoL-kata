@@ -13,21 +13,20 @@ namespace GoL_kata
             Initialise();
             
             var userInput = _inputSystem.ReadUserInput();
-
-            var board = new Board(userInput);
             
-            int iteration = 0;
-            ConsoleIO.PrintGameBoard(board, iteration);
+            var gameOfLife = new Game(userInput);
             
-            while (!Console.KeyAvailable)
+            gameOfLife.Print();
+            bool run = true;
+            while (run)
             {
-                board = Game.Iterate(board);
-                iteration++;
+                Thread.Sleep(1000);
                 
-                ConsoleIO.PrintGameBoard(board, iteration);
+                gameOfLife.Iterate();
+                gameOfLife.Print();
 
                 Console.Write("\nPress ANY KEY to end game...");
-                Thread.Sleep(1000);
+                run = !Console.KeyAvailable;
             }
         }
 

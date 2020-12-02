@@ -10,37 +10,60 @@ namespace GoL_kata
         public InputData ReadUserInput()
         {
             var keyDictionary = GetKeyDictionary();
+            var nameDictionary = GetNameDictionary();
             var seedDictionary = GetDataDictionary();
 
             Console.WriteLine("================ MENU ================");
             Console.WriteLine("Which pattern would you like to input?");
             
-            foreach (var item in keyDictionary)
+            foreach (var item in nameDictionary)
             {
                 Console.WriteLine("[{0}]: {1}", item.Key, item.Value);
             }
+            Console.WriteLine();
             
             var found = false;
-            string seedReference = "null";
+            string seedName = "null";
             InputData input = new InputData();
 
+            Console.Write("Please select an option...  ");
             while (!found)
             {
-                Console.Write("\nPlease select an option...  ");
-                seedReference = Console.ReadLine();
-                if (keyDictionary.ContainsKey(seedReference))
+                ConsoleKey key = Console.ReadKey(true).Key;
+                
+                while (!keyDictionary.ContainsKey(key))
                 {
-                    input = seedDictionary[keyDictionary[seedReference]];
+                    key = Console.ReadKey(true).Key;
+                }
+                seedName = nameDictionary[keyDictionary[key]];
+
+                if (seedDictionary.ContainsKey(seedName))
+                {
+                    input = seedDictionary[seedName];
                     found = true;
                 }
             }
 
-            Console.WriteLine("\nYou have chosen the " + keyDictionary[seedReference] + " as your pattern.");
+            Console.WriteLine("\nYou have chosen the " + seedDictionary[seedName] + " as your pattern.");
             
             return input;
         }
 
-        private Dictionary<string, string> GetKeyDictionary()
+        private Dictionary<ConsoleKey, string> GetKeyDictionary()
+        {
+            return new Dictionary<ConsoleKey, string>()
+            {
+                { ConsoleKey.A, "A" },
+                { ConsoleKey.B, "B" },
+                { ConsoleKey.C, "C" },
+                { ConsoleKey.D, "D" },
+                { ConsoleKey.E, "E" },
+                { ConsoleKey.F, "F" },
+                { ConsoleKey.G, "G" }
+            };
+        }
+
+        private Dictionary<string, string> GetNameDictionary()
         {
             return new Dictionary<string, string>()
             {

@@ -13,13 +13,13 @@ namespace GoL_kata
             Console.WriteLine("\t[A] Enter your own seed");
             Console.WriteLine("\t[B] Select a cool seed\n");
             
-            Console.Write("\rPlease select an option...  ");
+            Console.Write("Please select an option...  ");
 
-            ConsoleKey key = Console.ReadKey().Key;
+            ConsoleKey key = Console.ReadKey(true).Key;
 
             while (key != ConsoleKey.A && key != ConsoleKey.B)
             {
-                key = Console.ReadKey().Key;
+                key = Console.ReadKey(true).Key;
             }
             
             return key;

@@ -6,7 +6,7 @@ namespace GoL_kata
 {
     class UserInput : IInput
     {
-        private static InputData _input = new InputData();
+        private static InputData _input;
 
         public InputData ReadUserInput()
         {

@@ -4,25 +4,28 @@ namespace GoL_kata
 {
     public class Game
     {
+        private Board _board;
+        private int _iteration = 0;
 
-        public static Board Iterate(Board board)
+        public void Iterate()
         {
-            Board newBoard = new Board(board.BoardWidth, board.BoardHeight);
+            Board newBoard = new Board(_board.BoardWidth, _board.BoardHeight);
             
             // Game logic here
-            for (int i = 0; i < board.BoardHeight; i++)
+            for (int i = 0; i < _board.BoardHeight; i++)
             {
-                for (int j = 0; j < board.BoardWidth; j++)
+                for (int j = 0; j < _board.BoardWidth; j++)
                 {
-                    Cell cell = board.CellArray[i, j];
+                    Cell cell = _board.CellArray[i, j];
 
-                    int aliveNeighbours = CountLiveNeighbours(cell, board.CellArray, board.BoardHeight, board.BoardWidth);
+                    int aliveNeighbours = CountLiveNeighbours(cell, _board.CellArray, _board.BoardHeight, _board.BoardWidth);
 
-                    newBoard.CellArray[i, j] = UpdateCellStatus(board.CellArray[i, j], aliveNeighbours);
+                    newBoard.CellArray[i, j] = UpdateCellStatus(_board.CellArray[i, j], aliveNeighbours);
                 }
             }
-            
-            return newBoard;
+
+            _iteration++;
+            _board = newBoard;
         }
 
         public static int CountLiveNeighbours(Cell cell, Cell[,] cellArray, int boardHeight, int boardWidth)
@@ -105,6 +108,16 @@ namespace GoL_kata
             }
 
             return indices;
+        }
+
+        public void Print()
+        {
+            ConsoleIO.PrintGameBoard(_board, _iteration);
+        }
+
+        public Game(InputData inputData)
+        {
+            _board = new Board(inputData);
         }
     }
 }
