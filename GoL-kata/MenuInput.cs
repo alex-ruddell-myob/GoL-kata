@@ -11,7 +11,8 @@ namespace GoL_kata
         {
             var keyDictionary = GetKeyDictionary();
             var seedDictionary = GetDataDictionary();
-            
+
+            Console.WriteLine("================ MENU ================");
             Console.WriteLine("Which pattern would you like to input?");
             
             foreach (var item in keyDictionary)
@@ -25,7 +26,7 @@ namespace GoL_kata
 
             while (!found)
             {
-                Console.Write("Enter a letter:  ");
+                Console.Write("\nPlease select an option...  ");
                 seedReference = Console.ReadLine();
                 if (keyDictionary.ContainsKey(seedReference))
                 {
@@ -34,7 +35,7 @@ namespace GoL_kata
                 }
             }
 
-            Console.WriteLine("\nYou have chosen " + seedReference + " as your pattern.");
+            Console.WriteLine("\nYou have chosen the " + keyDictionary[seedReference] + " as your pattern.");
             
             return input;
         }
@@ -49,7 +50,7 @@ namespace GoL_kata
                 { "D", "Pulsar" },
                 { "E", "Penta-decathlon" },
                 { "F", "Glider" },
-                { "H", "Middle-weight spaceship"}
+                { "G", "Middle-weight spaceship"}
             };
         }
 
@@ -72,21 +73,21 @@ namespace GoL_kata
                 {
                     boardHeight = 17, boardWidth = 17, seedHeight = 13, seedWidth = 13, 
                     seedString = new[] {
-                        "--XXX---XXX--", "-------------", "X----X-X----X", "X----X-X----X", "X----X-X----X", "--XXX---XXX--",
+                        "--XXX---XXX--", "-------------", "X----X-X----X", "X----X-X----X", "X----X-X----X", "--XXX---XXX--", "-------------",
                         "--XXX---XXX--", "X----X-X----X", "X----X-X----X", "X----X-X----X", "-------------", "--XXX---XXX--"
                     }
                 } },
                 { "Penta-decathlon", new InputData
                 {
-                    boardHeight = 17, boardWidth = 17, seedHeight = 3, seedWidth = 10, seedString = new[] {"--X----X--", "XX-XXXX-XX", "--X----X--"}
+                    boardHeight = 11, boardWidth = 18, seedHeight = 3, seedWidth = 10, seedString = new[] {"--X----X--", "XX-XXXX-XX", "--X----X--"}
                 } },
                 { "Glider", new InputData
                 {
-                    boardHeight = 6, boardWidth = 6, seedHeight = 3, seedWidth = 3, seedString = new[] {"-X-", "--X", "XXX"}
+                    boardHeight = 20, boardWidth = 20, seedHeight = 3, seedWidth = 3, seedString = new[] {"-X-", "--X", "XXX"}
                 } },
                 { "Middle-weight spaceship", new InputData
                 {
-                    boardHeight = 25, boardWidth = 25, seedHeight = 5, seedWidth = 6, seedString = new[] {"--X---", "X---X-", "-----X", "X----X", "-XXXXX"}
+                    boardHeight = 11, boardWidth = 25, seedHeight = 5, seedWidth = 6, seedString = new[] {"--X---", "X---X-", "-----X", "X----X", "-XXXXX"}
                 } }
             };
         }

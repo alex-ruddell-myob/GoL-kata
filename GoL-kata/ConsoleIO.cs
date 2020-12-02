@@ -1,11 +1,29 @@
 using System;
+using System.ComponentModel.DataAnnotations;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks.Sources;
 
 namespace GoL_kata
 {
-    static class ConsoleOutput
+    static class ConsoleIO
     {
+        public static ConsoleKey GetUserSelection()
+        {
+            Console.WriteLine("How would you like to play?");
+            Console.WriteLine("\t[A] Enter your own seed");
+            Console.WriteLine("\t[B] Select a cool seed\n");
+            
+            Console.Write("\rPlease select an option...  ");
+
+            ConsoleKey key = Console.ReadKey().Key;
+
+            while (key != ConsoleKey.A && key != ConsoleKey.B)
+            {
+                key = Console.ReadKey().Key;
+            }
+            
+            return key;
+        }
         public static void PrintGameBoard(Board board, int iteration)
         {
             Console.WriteLine("\n\nGame Tick: " + iteration + "\n");
@@ -16,11 +34,11 @@ namespace GoL_kata
                     if (board.CellArray[i, j].alive)
                     {
                         // TODO: make 'alive' character cooler
-                        Console.Write("■  ");
+                        Console.Write("■ ");
                     }
                     else
                     {
-                        Console.Write("□  ");
+                        Console.Write("□ ");
                     }
                 }
 

@@ -4,7 +4,7 @@ using System.Threading.Tasks.Sources;
 
 namespace GoL_kata
 {
-    class ConsoleInput : IInput
+    class UserInput : IInput
     {
         private static InputData _input = new InputData();
 
