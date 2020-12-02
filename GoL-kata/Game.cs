@@ -1,4 +1,5 @@
 using System;
+using System.Threading;
 
 namespace GoL_kata
 {
@@ -112,6 +113,8 @@ namespace GoL_kata
 
         public void Print()
         {
+            // Delay to better visualise the board
+            Thread.Sleep(1000);
             ConsoleIO.PrintGameBoard(_board, _iteration);
         }
 

@@ -7,7 +7,7 @@ namespace GoL_kata
 {
     static class ConsoleIO
     {
-        public static ConsoleKey GetUserSelection()
+        public static ConsoleKey GetUserSelectInputType()
         {
             Console.WriteLine("How would you like to play?");
             Console.WriteLine("\t[A] Enter your own seed");
@@ -24,6 +24,7 @@ namespace GoL_kata
             
             return key;
         }
+        
         public static void PrintGameBoard(Board board, int iteration)
         {
             Console.WriteLine("\n\nGame Tick: " + iteration + "\n");

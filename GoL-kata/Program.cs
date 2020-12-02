@@ -17,11 +17,11 @@ namespace GoL_kata
             var gameOfLife = new Game(userInput);
             
             gameOfLife.Print();
+            Console.Write("\nPress ANY KEY to end game...");
+            
             bool run = true;
             while (run)
-            {
-                Thread.Sleep(1000);
-                
+            { 
                 gameOfLife.Iterate();
                 gameOfLife.Print();
 
@@ -34,7 +34,7 @@ namespace GoL_kata
         {
             Console.WriteLine("Welcome to Conway's Game of Life!\n");
 
-            var key = ConsoleIO.GetUserSelection();
+            var key = ConsoleIO.GetUserSelectInputType();
             var type = "default";
 
             switch (key)
