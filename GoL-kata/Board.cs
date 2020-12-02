@@ -52,6 +52,7 @@ namespace GoL_kata
         {
             BoardHeight = height;
             BoardWidth = width;
+            
             InitialiseCellArray();
 
         }

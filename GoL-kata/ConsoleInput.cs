@@ -4,11 +4,11 @@ using System.Threading.Tasks.Sources;
 
 namespace GoL_kata
 {
-    static class ConsoleIO
+    class ConsoleInput : IInput
     {
         private static InputData _input = new InputData();
 
-        public static InputData ReadUserInput()
+        public InputData ReadUserInput()
         {
             Console.Write("Please enter an integer board height (# cells):  ");
             _input.boardHeight = Int32.Parse(Console.ReadLine());
@@ -66,26 +66,5 @@ namespace GoL_kata
             return _input;
         }
 
-        public static void PrintGameBoard(Board board, int iteration)
-        {
-            Console.WriteLine("\n\nGame Tick: " + iteration + "\n");
-            for (int i = 0; i < board.BoardHeight; i++)
-            {
-                for (int j = 0; j < board.BoardWidth; j++)
-                {
-                    if (board.CellArray[i, j].alive)
-                    {
-                        // TODO: make 'alive' character cooler
-                        Console.Write("■  ");
-                    }
-                    else
-                    {
-                        Console.Write("□  ");
-                    }
-                }
-
-                Console.Write("\n");
-            }
-        }
     }
 }

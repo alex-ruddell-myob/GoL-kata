@@ -1,6 +1,6 @@
 namespace GoL_kata
 {
-    public class InputData
+    public struct InputData
     {
         public int boardHeight;
         public int boardWidth;
