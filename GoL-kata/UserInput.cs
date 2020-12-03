@@ -7,6 +7,8 @@ namespace GoL_kata
     class UserInput : IInput
     {
         private static InputData _input;
+        
+        // TODO: a BIG bunch of error handling!
 
         public InputData ReadUserInput()
         {
@@ -33,8 +35,8 @@ namespace GoL_kata
             {
                 Console.Write(col.ToString());
             }
-
             Console.Write("\n");
+            // TODO: print columns better when they have two numbers...
 
             _input.seedString = new string[_input.seedHeight];
             var regex = new Regex(@"[-X]");
@@ -55,6 +57,7 @@ namespace GoL_kata
                     _input.seedString[row - 1] = inputLine;
                 }
             }
+            // TODO: validate that these are the right length / fill in any gaps
 
             Console.WriteLine("\nYour seed is...\n");
 

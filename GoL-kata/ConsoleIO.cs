@@ -7,7 +7,9 @@ namespace GoL_kata
 {
     static class ConsoleIO
     {
-        public static ConsoleKey GetUserSelectInputType()
+        private static IInput _inputSystem;
+        
+        public static IInput GetUserSelectInputType()
         {
             Console.WriteLine("How would you like to play?");
             Console.WriteLine("\t[A] Enter your own seed");
@@ -21,8 +23,23 @@ namespace GoL_kata
             {
                 key = Console.ReadKey(true).Key;
             }
+
+            var type = "default";
             
-            return key;
+            switch (key)
+            {
+                case ConsoleKey.A:
+                    _inputSystem = new UserInput();
+                    type = "Manual Input";
+                    break;
+                case ConsoleKey.B:
+                    _inputSystem = new MenuInput();
+                    type = "Menu Input";
+                    break;
+            }
+
+            Console.WriteLine("\nYou have chosen " + type + "\n");
+            return _inputSystem;
         }
         
         public static void PrintGameBoard(Board board, int iteration)
