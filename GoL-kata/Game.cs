@@ -12,7 +12,6 @@ namespace GoL_kata
         {
             Board newBoard = new Board(_board.BoardWidth, _board.BoardHeight);
             
-            // Game logic here
             for (int cellRow = 0; cellRow < _board.BoardHeight; cellRow++)
             {
                 for (int cellColumn = 0; cellColumn < _board.BoardWidth; cellColumn++)
