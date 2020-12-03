@@ -64,12 +64,9 @@ namespace GoL_kata
                     if (CellExists(testingCellIndex))
                     {
                         Cell testingCell = CellArray[i, j];
-                        if (!Equals(currentCell, testingCell))
+                        if (!Equals(currentCell, testingCell) && testingCell.alive)
                         {
-                            if (CellArray[i, j].alive)
-                            {
-                                aliveCount++;
-                            }
+                            aliveCount++;
                         }
                     }
                 }
@@ -91,39 +88,11 @@ namespace GoL_kata
             return true;
         }
 
-        private int[] ValidateCellRange(int row, int column)
-        {
-            var indices = new int[2] {row, column};
-
-            // If boardHeight = 100, cell rows range from 0 to 99
-            if (row == BoardHeight)
-            {
-                indices[0] = 0;
-            }
-
-            if (row == -1)
-            {
-                indices[0] = BoardHeight - 1;
-            }
-
-            if (column == BoardWidth)
-            {
-                indices[1] = 0;
-            }
-
-            if (column == -1)
-            {
-                indices[1] = BoardWidth - 1;
-            }
-
-            return indices;
-        }
-        
         // CONSTRUCTORS
         public Board(int width, int height)
         {
-            BoardHeight = height;
-            BoardWidth = width;
+            BoardHeight = height + 2;
+            BoardWidth = width + 2;
             
             InitialiseCellArray();
 
@@ -131,8 +100,8 @@ namespace GoL_kata
         
         public Board(InputData input)
         {
-            BoardHeight = input.boardHeight;
-            BoardWidth = input.boardWidth;
+            BoardHeight = input.boardHeight + 2;
+            BoardWidth = input.boardWidth + 2;
             _seedHeight = input.seedHeight;
             _seedWidth = input.seedWidth;
             _seedString = input.seedString;

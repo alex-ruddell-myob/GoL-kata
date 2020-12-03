@@ -10,16 +10,16 @@ namespace GoL_kata
 
         public void Iterate()
         {
-            Board newBoard = new Board(_board.BoardWidth, _board.BoardHeight);
+            var newBoard = new Board(_board.BoardWidth - 2, _board.BoardHeight - 2);
             
-            for (int cellRow = 0; cellRow < _board.BoardHeight; cellRow++)
+            for (var cellRow = 0; cellRow < _board.BoardHeight; cellRow++)
             {
-                for (int cellColumn = 0; cellColumn < _board.BoardWidth; cellColumn++)
+                for (var cellColumn = 0; cellColumn < _board.BoardWidth; cellColumn++)
                 {
                     int[] cellIndex = { cellRow, cellColumn };
                     
-                    int aliveNeighbours = _board.CountLiveNeighbours(cellIndex);
-                    bool currentState = _board.CellArray[cellRow, cellColumn].alive;
+                    var aliveNeighbours = _board.CountLiveNeighbours(cellIndex);
+                    var currentState = _board.CellArray[cellRow, cellColumn].alive;
 
                     newBoard.CellArray[cellRow, cellColumn].UpdateCellStatus(aliveNeighbours, currentState);
                 }
