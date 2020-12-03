@@ -45,9 +45,9 @@ namespace GoL_kata
         public static void PrintGameBoard(Board board, int iteration)
         {
             Console.WriteLine("\n\nGame Tick: " + iteration + "\n");
-            for (int i = 1; i < board.BoardHeight - 1; i++)
+            for (int i = board.numOverflow; i < board.BoardHeight - board.numOverflow; i++)
             {
-                for (int j = 1; j < board.BoardWidth - 1; j++)
+                for (int j = board.numOverflow; j < board.BoardWidth - board.numOverflow; j++)
                 {
                     if (board.CellArray[i, j].alive)
                     {

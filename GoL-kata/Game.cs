@@ -10,7 +10,7 @@ namespace GoL_kata
 
         public void Iterate()
         {
-            var newBoard = new Board(_board.BoardWidth - 2, _board.BoardHeight - 2);
+            var newBoard = new Board(_board.BoardWidth - (_board.numOverflow * 2), _board.BoardHeight - (_board.numOverflow * 2));
             
             for (var cellRow = 0; cellRow < _board.BoardHeight; cellRow++)
             {
@@ -27,6 +27,30 @@ namespace GoL_kata
 
             _iteration++;
             _board = newBoard;
+        }
+
+        public bool NoLiveCells()
+        {
+            int count = 0;
+            
+            // TODO: use "cell.active" to sort this out! make overflow cells "inactive" cells
+            for (int i = _board.numOverflow; i < _board.BoardHeight - _board.numOverflow; i++)
+            {
+                for (int j = _board.numOverflow; j < _board.BoardWidth - _board.numOverflow; j++)
+                {
+                    if (_board.CellArray[i, j].alive)
+                    {
+                        count++;
+                    }
+                }
+            }
+            
+            if (count == 0)
+            {
+                return true;
+            }
+
+            return false;
         }
 
         public void Print()

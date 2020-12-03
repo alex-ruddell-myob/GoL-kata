@@ -11,6 +11,8 @@ namespace GoL_kata
         private int _seedWidth;
         private string[] _seedString;
 
+        public int numOverflow = 10;
+
         public Cell[,] CellArray;
 
         private void InitialiseCellArray()
@@ -91,8 +93,8 @@ namespace GoL_kata
         // CONSTRUCTORS
         public Board(int width, int height)
         {
-            BoardHeight = height + 2;
-            BoardWidth = width + 2;
+            BoardHeight = height + (numOverflow * 2);
+            BoardWidth = width + (numOverflow * 2);
             
             InitialiseCellArray();
 
@@ -100,8 +102,8 @@ namespace GoL_kata
         
         public Board(InputData input)
         {
-            BoardHeight = input.boardHeight + 2;
-            BoardWidth = input.boardWidth + 2;
+            BoardHeight = input.boardHeight + (numOverflow * 2);
+            BoardWidth = input.boardWidth + (numOverflow * 2);
             _seedHeight = input.seedHeight;
             _seedWidth = input.seedWidth;
             _seedString = input.seedString;

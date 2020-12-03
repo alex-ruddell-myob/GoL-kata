@@ -21,14 +21,29 @@ namespace GoL_kata
             Console.Write("\nPress ANY KEY to end game...");
             
             bool run = true;
+            string endMessage = "default message";
+            
             while (run)
             { 
                 gameOfLife.Iterate();
                 gameOfLife.Print();
 
                 Console.Write("\nPress ANY KEY to end game...");
-                run = !Console.KeyAvailable;
+
+                if (Console.KeyAvailable)
+                {
+                    run = false;
+                    endMessage = "Game stopped by user";
+                }
+
+                if (gameOfLife.NoLiveCells())
+                {
+                    run = false;
+                    endMessage = "Game ended as no live cells are left";
+                }
             }
+
+            Console.WriteLine(endMessage);
         }
 
         static void Initialise()
