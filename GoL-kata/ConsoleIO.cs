@@ -1,7 +1,6 @@
 using System;
-using System.ComponentModel.DataAnnotations;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks.Sources;
+
+// COMPLETE. Controls the connecting of IO sources.
 
 namespace GoL_kata
 {
@@ -13,13 +12,14 @@ namespace GoL_kata
         {
             Console.WriteLine("How would you like to play?");
             Console.WriteLine("\t[A] Enter your own seed");
-            Console.WriteLine("\t[B] Select a cool seed\n");
+            Console.WriteLine("\t[B] Select a cool seed");
+            Console.WriteLine("\t[C] Generate a random seed\n");
             
             Console.Write("Please select an option...  ");
 
-            ConsoleKey key = Console.ReadKey(true).Key;
+            var key = Console.ReadKey(true).Key;
 
-            while (key != ConsoleKey.A && key != ConsoleKey.B)
+            while (key != ConsoleKey.A && key != ConsoleKey.B && key != ConsoleKey.C)
             {
                 key = Console.ReadKey(true).Key;
             }
@@ -36,6 +36,10 @@ namespace GoL_kata
                     _inputSystem = new MenuInput();
                     type = "Menu Input";
                     break;
+                case ConsoleKey.C:
+                    _inputSystem = new RandomInput();
+                    type = "Random Input";
+                    break;
             }
 
             Console.WriteLine("\nYou have chosen " + type + "\n");
@@ -45,22 +49,26 @@ namespace GoL_kata
         public static void PrintGameBoard(Board board, int iteration)
         {
             Console.WriteLine("\n\nGame Tick: " + iteration + "\n");
-            for (int i = board.numOverflow; i < board.BoardHeight - board.numOverflow; i++)
+            for (int i = 0; i < board.BoardHeight; i++)
             {
-                for (int j = board.numOverflow; j < board.BoardWidth - board.numOverflow; j++)
+                var activeCount = 0;
+                for (int j = 0; j < board.BoardWidth; j++)
                 {
-                    if (board.CellArray[i, j].alive)
+                    if (board.CellArray[i, j].active)
                     {
-                        // TODO: make 'alive' character cooler
-                        Console.Write("■ ");
-                    }
-                    else
-                    {
-                        Console.Write("□ ");
+                        if (board.CellArray[i, j].alive)
+                        {
+                            Console.Write("■ ");
+                        }
+                        else
+                        {
+                            Console.Write("□ ");
+                        }
+
+                        activeCount++;
                     }
                 }
-
-                Console.Write("\n");
+                if (activeCount > 0) Console.Write("\n");
             }
         }
     }

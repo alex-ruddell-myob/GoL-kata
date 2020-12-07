@@ -6,12 +6,12 @@ namespace GoL_testing
     public class Tests
     {
         private Cell[,] cellArray;
-        private Board board;
+        private EdgeBoard _edgeBoard;
         
         [SetUp]
         public void SetUp()
         {
-            board = new Board(10, 10);
+            _edgeBoard = new EdgeBoard(10, 10);
             
             cellArray = new Cell[3, 3];
             // Initialise array...
@@ -33,7 +33,7 @@ namespace GoL_testing
             cellArray[1, 1].alive = true;
             cellArray[1, 2].alive = true;
 
-            int alive = board.CountLiveNeighbours(new int[] { 0, 1 });
+            int alive = _edgeBoard.CountLiveNeighbours(new int[] { 0, 1 });
 
             Assert.AreEqual(3, alive);
         }
@@ -46,7 +46,7 @@ namespace GoL_testing
             cellArray[0, 1].alive = true;
             cellArray[0, 2].alive = true;
 
-            int alive = board.CountLiveNeighbours(new int[] { 2, 1 });
+            int alive = _edgeBoard.CountLiveNeighbours(new int[] { 2, 1 });
             
             Assert.AreEqual(3, alive);
         }
@@ -59,7 +59,7 @@ namespace GoL_testing
             cellArray[2, 0].alive = true;
             cellArray[0, 2].alive = true;
             
-            int alive = board.CountLiveNeighbours(new int[] {2, 2});
+            int alive = _edgeBoard.CountLiveNeighbours(new int[] {2, 2});
             
             Assert.AreEqual(3, alive);
         }

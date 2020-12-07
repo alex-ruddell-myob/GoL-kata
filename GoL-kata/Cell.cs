@@ -1,41 +1,45 @@
+
+// COMPLETE. Holds cell functionality.
+
 namespace GoL_kata
 {
     public class Cell
     {
         public int row;
         public int column;
-
         public bool alive;
-        // public bool active; 
-        // Active as in, has been activated by surrounding cells. Trying to decrease computational intensity.
-
-        public void UpdateCellStatus(int aliveNeighbours, bool currentState)
+        public bool active; // Not an edge cell
+        
+        public void UpdateCellStatus(int aliveNeighbours, bool alive, bool active)
         {
-            if (currentState)
+            this.active = active;
+            
+            if (alive)
             {
                 if (aliveNeighbours < 2 || aliveNeighbours > 3)
                 {
-                    alive = false;
+                    this.alive = false;
                 }
                 else
                 {
-                    alive = true;
+                    this.alive = true;
                 }
             }
             else
             {
                 if (aliveNeighbours == 3)
                 {
-                    alive = true;
+                    this.alive = true;
                 }
             }
         }
 
-        public Cell(int row, int column, bool alive)
+        public Cell(int row, int column, bool alive, bool active)
         {
             this.row = row;
             this.column = column;
             this.alive = alive;
+            this.active = active;
         }
     }
 }

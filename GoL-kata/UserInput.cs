@@ -1,6 +1,7 @@
 using System;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks.Sources;
+
+// COMPLETE. Deals with custom user inputs.
 
 namespace GoL_kata
 {
@@ -65,6 +66,29 @@ namespace GoL_kata
             {
                 Console.WriteLine("\t\t" + line);
             }
+            
+            Console.Write("\n\nWould you like the board to [W]rap, or have [F]ixed edges?  ");
+            
+            ConsoleKey key = Console.ReadKey(true).Key;
+            while (key != ConsoleKey.F && key != ConsoleKey.W)
+            {
+                key = Console.ReadKey(true).Key;
+            }
+
+            var type = "default";
+            switch (key)
+            {
+                case ConsoleKey.F:
+                    _input.boardType = "Fixed";
+                    type = "fixed edge";
+                    break;
+                case ConsoleKey.W:
+                    _input.boardType = "Wrap";
+                    type = "wrap";
+                    break;
+            }
+
+            Console.WriteLine("\nYou have chosen a " + type + " board");
 
             return _input;
         }

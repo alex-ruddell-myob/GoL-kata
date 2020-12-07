@@ -8,5 +8,6 @@ namespace GoL_kata
         public int seedWidth;
 
         public string[] seedString;
+        public string boardType;
     }
 }
